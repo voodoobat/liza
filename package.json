@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -16,7 +18,10 @@
     ]
   },
   "dependencies": {
+    "@libsql/client": "^0.15.15",
     "@tailwindcss/vite": "^4.1.16",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.44.7",
     "nuxt": "^4.2.0",
     "reka-ui": "^2.6.0",
     "tailwindcss": "^4.1.16",
@@ -25,11 +30,13 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.9.0",
+    "drizzle-kit": "^0.31.6",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.6"
+    "lint-staged": "^16.2.6",
+    "tsx": "^4.20.6"
   },
   "engines": {
     "node": "24"

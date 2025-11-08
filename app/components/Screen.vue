@@ -1,5 +1,5 @@
 <template>
-  <Primitive class="max-w-292.5 mx-auto" :as="as" :as-child="asChild">
+  <Primitive class="w-screen h-screen" :as="as" :as-child="asChild">
     <slot />
   </Primitive>
 </template>

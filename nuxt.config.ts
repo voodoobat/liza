@@ -10,7 +10,17 @@ export default defineNuxtConfig({
   css: ['~/assets/css/index.css'],
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', '@nuxt/icon'],
+  icon: {
+    mode: 'svg',
+    provider: 'none',
+    customCollections: [
+      {
+        prefix: 'icon',
+        dir: './app/assets/icons',
+      },
+    ],
+  },
   vite: {
     plugins: [tailwindcss()],
   },

@@ -3,8 +3,8 @@ import { defineConfig } from 'drizzle-kit'
 
 export default defineConfig({
   dialect: 'sqlite',
-  out: './db/migrations',
-  schema: './db/schema',
+  out: './server/db/migrations',
+  schema: './server/db/schema',
   dbCredentials: {
     url: process.env.DB_FILE_NAME!,
   },

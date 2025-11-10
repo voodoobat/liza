@@ -1,7 +1,7 @@
 import { hash } from 'bcrypt'
 import { eq, sql } from 'drizzle-orm'
-import db from '@@/db'
-import { user, type UserInput, type UserSelect } from '@@/db/schema'
+import db from '~~/server/db'
+import { user, type UserInput, type UserSelect } from '~~/server/db/schema'
 
 export const $user = {
   async create(body: UserInput) {

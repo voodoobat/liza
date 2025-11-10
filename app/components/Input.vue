@@ -13,13 +13,14 @@
     >
       <Icon v-if="icon" :name="icon" class="w-[1em] h-[1em]" />
       <input
-        v-model="value"
+        v-model="model"
         class="py-sm focus:outline-0"
         :type
         :placeholder
         :disabled
-        @focus="focus = true"
-        @blur="blur"
+        @focus="onFocus"
+        @blur="onBlur"
+        @input="$emit('input', model)"
       />
     </div>
     <span v-if="!focus && touched && errors.length" class="text-xs text-danger">
@@ -33,6 +34,10 @@ import type { HTMLAttributes } from 'vue'
 import { Primitive, type PrimitiveProps } from 'reka-ui'
 import { useField } from 'vee-validate'
 
+const emit = defineEmits<{
+  (e: 'blur' | 'focus' | 'input', value: string): void
+}>()
+
 const { name, type = 'text' } = defineProps<
   PrimitiveProps & {
     class?: HTMLAttributes['class']
@@ -44,12 +49,20 @@ const { name, type = 'text' } = defineProps<
   }
 >()
 
-const { value, errors } = useField(() => name)
+const { value: model, errors } = useField<string>(() => name)
 
 const focus = ref(false)
 const touched = ref(false)
 
-function blur() {
+function onFocus() {
+  emit('focus', model.value)
+
+  focus.value = true
+}
+
+function onBlur() {
+  emit('blur', model.value)
+
   focus.value = false
   touched.value = true
 }

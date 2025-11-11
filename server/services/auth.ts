@@ -32,16 +32,6 @@ export const $auth = {
     return tokens
   },
 
-  async refresh(refreshToken: string, userAgent: string) {
-    const payload = jwt.verify(refreshToken)
-    const tokens = jwt.gen(payload.id, userAgent)
-
-    await this.delete(refreshToken) // delete old token
-    await this.save(tokens.refreshToken, payload.id) // create new token
-
-    return tokens
-  },
-
   async save(refreshToken: string, userId: string) {
     await db.insert(auth).values({
       token: refreshToken,

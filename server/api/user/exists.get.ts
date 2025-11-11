@@ -1,5 +1,5 @@
 import { $user } from '@@/server/services'
 
 export default defineEventHandler(async () => {
-  return await $user.find()
+  return Boolean((await $user.find()).length)
 })

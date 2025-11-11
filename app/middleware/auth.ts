@@ -1,7 +1,8 @@
-export default defineNuxtRouteMiddleware(() => {
+export default defineNuxtRouteMiddleware(async () => {
+  if (import.meta.client) return
+
   const accessToken = useCookie('access-token')
 
-  if (import.meta.client) return
   if (!accessToken.value) {
     return navigateTo('/backend/login')
   }

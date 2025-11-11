@@ -1,6 +1,6 @@
 <template>
   <Screen class="flex justify-center items-center">
-    <BackendUserAccount />
+    <BackendUser />
   </Screen>
 </template>
 

@@ -1,6 +1,10 @@
 import jwt, { type SignOptions } from 'jsonwebtoken'
 
 export default {
+  decode(token: string) {
+    return jwt.decode(token)
+  },
+
   gen(userId: string, userAgent: string) {
     const accessToken = this.sign({ id: userId, userAgent }, '15m')
     const refreshToken = this.sign({ id: userId, userAgent }, '7d')
@@ -11,14 +15,18 @@ export default {
     }
   },
 
-  verify(token: string) {
+  verify(token?: string) {
+    if (!token) {
+      return null
+    }
+
     try {
       return jwt.verify(token, process.env.JWT_SECRET as string) as {
         id: string
         userAgent: string
       }
     } catch {
-      throw new Error('Invalid token')
+      return null
     }
   },
 

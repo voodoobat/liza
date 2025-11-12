@@ -38,7 +38,6 @@ const validationSchema = toTypedSchema(
 )
 
 async function createUser(values: Record<string, unknown>) {
-  console.log('send user')
   const { error: requestError } = await useFetch('/api/user', {
     method: 'POST',
     body: {

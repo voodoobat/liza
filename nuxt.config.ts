@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/icon'],
+  runtimeConfig: {
+    JWT_SECRET: process.env.JWT_SECRET,
+  },
   icon: {
     mode: 'svg',
     provider: 'none',

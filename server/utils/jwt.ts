@@ -16,12 +16,14 @@ export default {
   },
 
   verify(token?: string) {
+    const config = useRuntimeConfig()
+
     if (!token) {
       return null
     }
 
     try {
-      return jwt.verify(token, process.env.JWT_SECRET as string) as {
+      return jwt.verify(token, config.JWT_SECRET as string) as {
         id: string
         userAgent: string
       }
@@ -31,6 +33,8 @@ export default {
   },
 
   sign(data: { id: string; userAgent: string }, expiresIn: SignOptions['expiresIn'] = '15m') {
-    return jwt.sign(data, process.env.JWT_SECRET as string, { expiresIn })
+    const config = useRuntimeConfig()
+
+    return jwt.sign(data, config.JWT_SECRET as string, { expiresIn })
   },
 }

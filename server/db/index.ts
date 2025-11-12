@@ -3,7 +3,10 @@ import { drizzle } from 'drizzle-orm/libsql'
 
 const db = drizzle({
   connection: {
-    url: process.env.DB_FILE_NAME!,
+    url:
+      process.env.NODE_ENV === 'development'
+        ? 'file:data/db.dev.sqlite'
+        : 'file:data/db.prod.sqlite',
   },
 })
 

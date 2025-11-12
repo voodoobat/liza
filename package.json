@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push --dialect sqlite --schema ./drizzle/schema --url ./.output/server/db.sqlite",
     "db:studio": "drizzle-kit studio",
     "dev": "nuxt dev",
     "generate": "nuxt generate",

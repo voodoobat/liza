@@ -35,8 +35,9 @@ async function signIn(values: Record<string, unknown>) {
 
   if (requestError.value) {
     error.value = true
-  } else {
-    navigateTo('/backend')
+    return
   }
+
+  navigateTo('/backend')
 }
 </script>

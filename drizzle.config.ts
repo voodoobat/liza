@@ -7,8 +7,8 @@ export default defineConfig({
   schema: './server/db/schema',
   dbCredentials: {
     url:
-      process.env.NODE_ENV === 'development'
-        ? 'file:data/db.dev.sqlite'
-        : 'file:data/db.prod.sqlite',
+      process.env.NODE_ENV === 'production'
+        ? 'file:data/db.prod.sqlite'
+        : 'file:data/db.dev.sqlite',
   },
 })

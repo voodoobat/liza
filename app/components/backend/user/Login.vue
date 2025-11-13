@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import { authLoginSchema } from '@@/zod'
+import { authLoginSchema } from '~~/zod'
 
 const error = ref(false)
 const validationSchema = toTypedSchema(authLoginSchema)

@@ -1,4 +1,4 @@
-import { $auth } from '@@/server/services'
+import { $auth } from '~~/server/services'
 
 export default defineEventHandler(async (event) => {
   const refreshToken = getCookie(event, 'refresh-token')

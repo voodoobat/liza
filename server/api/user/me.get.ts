@@ -1,5 +1,5 @@
-import type { Evt } from '@@/server/types'
-import { $user } from '@@/server/services'
+import type { Evt } from '~~/server/types'
+import { $user } from '~~/server/services'
 
 export default defineEventHandler(async (event: Evt) => {
   if (!event.context.userId) {

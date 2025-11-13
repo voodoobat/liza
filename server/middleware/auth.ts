@@ -1,4 +1,4 @@
-import type { Jwt } from '@@/server/types'
+import type { Jwt } from '~~/server/types'
 
 export default defineEventHandler(async (event) => {
   const cookies = parseCookies(event)

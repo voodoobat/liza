@@ -1,9 +1,9 @@
 import { compare } from 'bcrypt'
 import { eq } from 'drizzle-orm'
-import type { AuthLoginSchema } from '@@/zod'
+import type { AuthLoginSchema } from '~~/zod'
 import db from '~~/server/db'
 import { auth } from '~~/server/db/schema'
-import jwt from '@@/server/utils/jwt'
+import jwt from '~~/server/utils/jwt'
 import { $user } from './user'
 
 export const $auth = {

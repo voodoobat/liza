@@ -1,5 +1,5 @@
-import { authLoginSchema } from '@@/zod'
-import { $auth } from '@@/server/services'
+import { authLoginSchema } from '~~/zod'
+import { $auth } from '~~/server/services'
 
 export default defineEventHandler(async (event) => {
   const body = await readValidatedBody(event, authLoginSchema.parse)

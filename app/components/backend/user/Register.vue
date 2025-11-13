@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { Form } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
-import { userCreateSchema } from '@@/zod'
+import { userCreateSchema } from '~~/zod'
 
 const error = ref(false)
 const validationSchema = toTypedSchema(

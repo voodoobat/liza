@@ -1,6 +1,6 @@
-import { userCreateSchema } from '@@/zod/user'
-import { $auth, $user } from '@@/server/services'
-import jwt from '@@/server/utils/jwt'
+import { userCreateSchema } from '~~/zod/user'
+import { $auth, $user } from '~~/server/services'
+import jwt from '~~/server/utils/jwt'
 
 export default defineEventHandler(async (event) => {
   const userAgent = getHeader(event, 'user-agent') ?? 'unknown'

@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 definePageMeta({
-  middleware: 'user-exists',
+  layout: 'backend',
+  middleware: 'auth',
 })
 </script>

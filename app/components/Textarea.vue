@@ -11,14 +11,13 @@
         )
       "
     >
-      <Icon v-if="icon" :name="icon" class="w-[1em] h-[1em]" />
-      <input
+      <textarea
         :id="name"
         v-model="model"
-        class="py-sm focus:outline-0"
+        class="py-sm focus:outline-0 resize-none"
         :disabled
         :placeholder
-        :type
+        :rows
         @focus="onFocus"
         @blur="onBlur"
         @input="$emit('input', model)"
@@ -38,14 +37,13 @@ const emit = defineEmits<{
   (e: 'blur' | 'focus' | 'input', value: string): void
 }>()
 
-const { name, type = 'text' } = defineProps<
+const { name, rows = 3 } = defineProps<
   PrimitiveProps & {
     disabled?: boolean
-    icon?: string
     label?: string
     name: string
     placeholder?: string
-    type?: HTMLInputElement['type']
+    rows?: number
   }
 >()
 
